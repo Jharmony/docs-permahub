@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Within this project, we're only going to be developing with:
+
+- Shadcn
+- Tailwindcss v4
+- Vite
+- React
+- All components must be client-side. We will not be developing any server-side components

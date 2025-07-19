@@ -1,0 +1,35 @@
+{
+  "name": "docs-permahub",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "homepage": ".",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && permaweb-deploy --deploy-folder ./dist --arns-name permahub --undername docs_permahub --ant-process XAuRBfoIdLzxlGo1BJMJZ6qOVilJAbe5zju8V0RtG6c"
+  },
+  "dependencies": {
+    "@permaweb/aoconnect": "^0.0.85",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@tailwindcss/typography": "^0.5.16",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.6",
+    "lucide-react": "^0.525.0",
+    "motion": "^12.23.6",
+    "openai": "^5.10.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "permaweb-deploy": "^1.0.0",
+    "typescript": "^5.4.5",
+    "vite": "^4.4.9"
+  }
+}

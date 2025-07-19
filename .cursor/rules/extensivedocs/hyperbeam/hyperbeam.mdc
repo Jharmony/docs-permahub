@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Within this project, we're only going to be developing with:
+
+- Arweave
+- AO CORE
+- Vite
+- React
+- HyperBEAN
+- Graphql Queries
+
+We must also stay true to our internal [style-guide.md](mdc:.cursor/rules/style-guide.md)
+
+[hyperbeam.md](mdc:.cursor/rules/hyperbeam.md)
+[ao-core-protocol.md](mdc:.cursor/rules/ao-core-protocol.md)
+[ao-http-api.md](mdc:.cursor/rules/ao-http-api.md)
+[hbglossary.md](mdc:.cursor/rules/hbglossary.md)
+[hbIntro.md](mdc:.cursor/rules/hbIntro.md)
+[hbsampfile.md](mdc:.cursor/rules/hbsampfile.md)
+[hbtroubleshooting.md](mdc:.cursor/rules/hbtroubleshooting.md)
+[hpfaq.md](mdc:.cursor/rules/hpfaq.md)
+[hyperbeam.md](mdc:.cursor/rules/hyperbeam.md)
+[js-client-guide.md](mdc:.cursor/rules/js-client-guide.md)
+[setting-up-selecting-devices.md](mdc:.cursor/rules/setting-up-selecting-devices.md)
+[tee.md](mdc:.cursor/rules/tee.md)
+[wasminfo.md](mdc:.cursor/rules/wasminfo.md)
