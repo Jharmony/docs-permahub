@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && permaweb-deploy --deploy-folder ./dist --arns-name permahub --undername docs_permahub --ant-process XAuRBfoIdLzxlGo1BJMJZ6qOVilJAbe5zju8V0RtG6c"
+    "deploy": "npm run build && permaweb-deploy --deploy-folder ./dist --arns-name permahub --undername docs --ant-process XAuRBfoIdLzxlGo1BJMJZ6qOVilJAbe5zju8V0RtG6c"
   },
   "dependencies": {
     "@permaweb/aoconnect": "^0.0.85",
