@@ -1,30 +1,33 @@
-# @permaweb/libs Documentation Site
+# DOC HUB - Arweave & AO Ecosystem Documentation
 
-This is a comprehensive documentation site for @permaweb/libs, built with Vite, React, and VitePress. The site includes both a React application and a VitePress documentation site that can be deployed to Arweave's permaweb.
+This is a comprehensive documentation site for the Arweave and AO (Arweave's Actor Oriented) ecosystem, built with React, TypeScript, and Vite. The site provides guides, tutorials, and resources for developers building on Arweave and AO.
 
 ## Project Structure
 
 ```
-permaweb-libs-docs/
-├── docs/                    # VitePress documentation
-│   ├── .vitepress/         # VitePress configuration
-│   ├── index.md            # Main documentation page
-│   ├── getting-started.md  # Getting started guide
-│   ├── zones.md            # Zones documentation
-│   ├── profiles.md         # Profiles documentation
-│   ├── atomic-assets.md    # Atomic assets documentation
-│   ├── collections.md      # Collections documentation
-│   ├── comments.md         # Comments documentation
-│   ├── api-reference.md    # API reference
-│   └── examples.md         # Usage examples
-├── src/                    # React application
+docs-permahub/
+├── src/                    # React application source
+│   ├── components/         # React components
+│   │   ├── Navigation.tsx  # Main navigation
+│   │   ├── Sidebar.tsx     # Left sidebar
+│   │   └── RightSidebar.tsx # Right sidebar
+│   ├── pages/              # Documentation pages
+│   │   ├── GettingStarted.tsx
+│   │   ├── AtomicAssets.tsx
+│   │   ├── Collections.tsx
+│   │   ├── Profiles.tsx
+│   │   ├── Zones.tsx
+│   │   ├── Comments.tsx
+│   │   ├── Bazar.tsx
+│   │   ├── BuildingAIAgents.tsx
+│   │   └── ...             # Additional pages
+│   ├── assets/             # Images and static assets
+│   ├── types/              # TypeScript type definitions
 │   ├── App.tsx            # Main React app with HashRouter
 │   ├── Home.tsx           # Home page component
-│   ├── About.tsx          # About page component
 │   └── index.css          # Styles
 ├── dist/                   # Built React app (after build)
-├── docs/.vitepress/dist/   # Built VitePress docs (after docs:build)
-├── wallet.json            # Arweave wallet for deployment
+├── .github/workflows/      # GitHub Actions deployment
 └── package.json           # Project dependencies and scripts
 ```
 
@@ -32,16 +35,23 @@ permaweb-libs-docs/
 
 ### React Application
 - **HashRouter**: Uses HashRouter for Arweave compatibility
-- **Responsive Design**: Modern, responsive UI
-- **Navigation**: Links to documentation and about page
+- **Responsive Design**: Modern, responsive UI with Tailwind CSS
+- **Navigation**: Comprehensive navigation with left sidebar and right sidebar
 - **Arweave Ready**: Configured for permaweb deployment
+- **TypeScript**: Full TypeScript support for type safety
 
-### VitePress Documentation
-- **Comprehensive Coverage**: Complete documentation for all @permaweb/libs features
-- **Interactive Navigation**: Sidebar navigation and search
-- **Code Examples**: Extensive code examples and usage patterns
-- **API Reference**: Complete API documentation with TypeScript types
-- **Real-world Examples**: Practical examples for different use cases
+### Documentation Coverage
+- **Getting Started**: Complete onboarding for new developers
+- **Atomic Assets**: Digital asset creation and management
+- **Collections**: Asset organization and curation
+- **Profiles**: User identity and social features
+- **Zones**: Content organization and communities
+- **Comments**: Social interactions and discussions
+- **Bazar & Bazar Studio**: Marketplace and creator tools
+- **AI Agents**: Building AI agents on AO
+- **Hackathon Resources**: Resources for hackathon participants
+- **API Reference**: Complete API documentation
+- **Examples**: Real-world implementation examples
 
 ## Getting Started
 
@@ -55,18 +65,13 @@ permaweb-libs-docs/
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd permaweb-libs-docs
+git clone https://github.com/Jharmony/docs-permahub.git
+cd docs-permahub
 ```
 
 2. Install dependencies:
 ```bash
 npm install
-```
-
-3. Generate an Arweave wallet (if you don't have one):
-```bash
-node -e "require('arweave').init({}).wallets.generate().then(JSON.stringify).then(console.log.bind(console))" > wallet.json
 ```
 
 ### Development
@@ -77,12 +82,6 @@ npm run dev
 ```
 Visit `http://localhost:5173` to see the React application.
 
-#### Run VitePress Documentation
-```bash
-npm run docs:dev
-```
-Visit `http://localhost:5173` to see the VitePress documentation.
-
 ### Building
 
 #### Build React App
@@ -91,12 +90,6 @@ npm run build
 ```
 This creates the `dist/` directory with the built React application.
 
-#### Build VitePress Documentation
-```bash
-npm run docs:build
-```
-This creates the `docs/.vitepress/dist/` directory with the built documentation.
-
 ### Preview Built Applications
 
 #### Preview React App
@@ -104,110 +97,77 @@ This creates the `docs/.vitepress/dist/` directory with the built documentation.
 npm run preview
 ```
 
-#### Preview VitePress Documentation
-```bash
-npm run docs:serve
-```
-
 ## Deployment to Arweave
 
-### Prerequisites for Deployment
+This project is configured for automated deployment to Arweave using GitHub Actions. When you push changes to the `main` branch, the site is automatically deployed to `https://docs.permahub.ar`.
 
-1. **Fund your wallet**: You need AR tokens in your wallet for deployment
-2. **Get ANT Process ID**: You need an ANT process ID for deployment
-3. **Install permaweb-deploy**: Already included in the project
+### Manual Deployment
 
-### Deploy to Arweave
+If you need to deploy manually:
 
-1. **Update the deploy script**: Replace `<< ANT-PROCESS >>` in `package.json` with your actual ANT process ID:
-```json
-"deploy": "DEPLOY_KEY=$(base64 -i wallet.json) permaweb-deploy --ant-process YOUR_ANT_PROCESS_ID"
-```
-
-2. **Build the application**:
-```bash
-npm run build
-npm run docs:build
-```
-
-3. **Deploy to Arweave**:
 ```bash
 npm run deploy
 ```
 
-### Deployment Response
-
-After successful deployment, you should see a response like:
-```
-Deployed TxId [<<tx-id>>] to ANT [<<ant-process>>] using undername [<<undername>>]
-```
-
-Your application will be available at: `https://arweave.net/<<tx-id>>`
+This will build the application and deploy it to Arweave using the configured ArNS name and undername.
 
 ## Documentation Structure
 
 ### Core Concepts
-- **Zones**: Entity management on the permaweb
-- **Profiles**: User and organization representation
-- **Atomic Assets**: Unique digital items
-- **Collections**: Asset organization
-- **Comments**: Social features
+- **Getting Started**: Complete onboarding for new developers
+- **Atomic Assets**: Digital asset creation and management
+- **Collections**: Asset organization and curation
+- **Profiles**: User identity and social features
+- **Zones**: Content organization and communities
+- **Comments**: Social interactions and discussions
 
-### API Reference
-- Complete method documentation
-- TypeScript interfaces
-- Parameter descriptions
-- Return value specifications
-- Error handling examples
+### Advanced Topics
+- **Bazar & Bazar Studio**: Marketplace and creator tools
+- **AI Agents**: Building AI agents on AO
+- **Hackathon Resources**: Resources for hackathon participants
+- **API Reference**: Complete API documentation
+- **Examples**: Real-world implementation examples
 
-### Examples
-- **Profile Management**: Complete user profile system
-- **Asset Gallery**: Digital art gallery implementation
-- **Social Platform**: Social media features
-- **NFT Marketplace**: NFT creation and management
-- **Blog Platform**: Decentralized blog
-- **Portfolio Site**: Developer portfolio
+### Additional Resources
+- **Starter Kits**: Quick start templates
+- **Best Practices**: Development guidelines
+- **Troubleshooting**: Common issues and solutions
+- **Weavers Resource Library**: Complete toolkit
 
 ## Customization
 
-### VitePress Configuration
-Edit `docs/.vitepress/config.js` to customize:
-- Site title and description
-- Navigation menu
-- Sidebar structure
-- Theme colors
-- Social links
-
 ### React App Customization
 - Modify `src/App.tsx` to add new routes
-- Update `src/Home.tsx` and `src/About.tsx` for content changes
+- Update `src/pages/` components for content changes
 - Customize `src/index.css` for styling
+- Add new pages in `src/pages/` directory
 
 ### Adding New Documentation
-1. Create new `.md` files in the `docs/` directory
-2. Update `docs/.vitepress/config.js` to include new pages in navigation
-3. Build and deploy
+1. Create new `.tsx` files in the `src/pages/` directory
+2. Update `src/App.tsx` to include new routes
+3. Update navigation components as needed
+4. Build and deploy
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Build Errors**: Make sure all dependencies are installed
-2. **Deployment Failures**: Check wallet funding and ANT process ID
+2. **Deployment Failures**: Check GitHub Actions logs for deployment issues
 3. **Navigation Issues**: Verify HashRouter configuration for Arweave compatibility
 
 ### Getting Help
 
-- Check the [@permaweb/libs documentation](https://github.com/permaweb/libs)
-- Join the [Discord community](https://discord.gg/permaweb)
-- Report issues on [GitHub](https://github.com/permaweb/libs)
+- Check the [Arweave documentation](https://docs.arweave.org/)
+- Join the [Arweave Discord community](https://discord.gg/arweave)
+- Report issues on [GitHub](https://github.com/Jharmony/docs-permahub)
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test locally with `npm run dev` and `npm run docs:dev`
+4. Test locally with `npm run dev`
 5. Submit a pull request
 
 ## License
@@ -216,6 +176,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-**Built with ❤️ for the Permaweb**
+**Built with ❤️ for the Arweave & AO Ecosystem**
 
-For more information about @permaweb/libs, visit the [GitHub repository](https://github.com/permaweb/libs). 
+For more information about Arweave, visit the [official documentation](https://docs.arweave.org/). 

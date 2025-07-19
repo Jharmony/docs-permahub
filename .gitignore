@@ -39,3 +39,7 @@ wallet.json
 .aos.json
 secrets/
 keys/
+
+# Local documentation files (not for deployment)
+DEPLOYMENT.md
+README copy.md
