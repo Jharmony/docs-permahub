@@ -11,9 +11,11 @@ interface ResourceItem {
 interface RightSidebarProps {
   resources?: ResourceItem[];
   showToc?: boolean;
+  className?: string;
+  onClose?: () => void;
 }
 
-const RightSidebar = ({ resources = [], showToc = true }: RightSidebarProps) => {
+const RightSidebar = ({ resources = [], showToc = true, className = '', onClose }: RightSidebarProps) => {
   const [isDark, setIsDark] = useState(() => document.body.classList.contains('dark-mode'));
   const [hackathonResourcesOpen, setHackathonResourcesOpen] = useState(true);
   const [quickNavOpen, setQuickNavOpen] = useState(true);
@@ -87,7 +89,7 @@ const RightSidebar = ({ resources = [], showToc = true }: RightSidebarProps) => 
             title: 'Building AI Agents Guide',
             description: 'Complete guide to building AI agents from simple to advanced',
             path: '/building-ai-agents'
-          },          
+          },
           {
             title: 'AI Tools & LLMs',
             description: 'AI development resources and tools',
@@ -376,8 +378,20 @@ const RightSidebar = ({ resources = [], showToc = true }: RightSidebarProps) => 
   const hackathonResources = getHackathonResources();
 
   return (
-    <aside className="right-sidebar">
+    <aside className={`right-sidebar ${className}`}>
       <div className="right-sidebar-content">
+        {/* Mobile close button */}
+        <button 
+          className="right-sidebar-close-btn"
+          onClick={onClose}
+          aria-label="Close resources"
+          title="Close"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        
         {/* Hackathon Resources - Contextual resources */}
         <div className="right-sidebar-section">
           <button 
@@ -475,7 +489,7 @@ const RightSidebar = ({ resources = [], showToc = true }: RightSidebarProps) => 
                 ))}
               </ul>
             </nav>
-          )}
+        )}
         </div>
       </div>
     </aside>

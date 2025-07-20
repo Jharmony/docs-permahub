@@ -31,16 +31,36 @@ import ARX from './pages/ARX';
 function AppContent() {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+    // Close right sidebar when opening left sidebar
+    if (!sidebarOpen) {
+      setRightSidebarOpen(false);
+    }
+  };
+
+  const toggleRightSidebar = () => {
+    setRightSidebarOpen(!rightSidebarOpen);
+    // Close left sidebar when opening right sidebar
+    if (!rightSidebarOpen) {
+      setSidebarOpen(false);
+    }
+  };
+
+  const closeRightSidebar = () => {
+    setRightSidebarOpen(false);
   };
 
   return (
     <div className="app">
-      <Navigation onMenuToggle={toggleSidebar} />
+      <Navigation onMenuToggle={toggleSidebar} onRightMenuToggle={toggleRightSidebar} />
       {sidebarOpen && (
         <div className="sidebar-backdrop" onClick={toggleSidebar}></div>
+      )}
+      {rightSidebarOpen && (
+        <div className="right-sidebar-backdrop open" onClick={closeRightSidebar}></div>
       )}
       <div className="app-layout">
         <Sidebar className={sidebarOpen ? 'open' : ''} />
@@ -78,7 +98,7 @@ function AppContent() {
             <Route path="/arx" element={<ARX />} />
           </Routes>
         </main>
-        <RightSidebar />
+        <RightSidebar className={rightSidebarOpen ? 'open' : ''} onClose={closeRightSidebar} />
       </div>
     </div>
   );
