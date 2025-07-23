@@ -22,8 +22,8 @@ function AITools() {
       <h3>Getting Started</h3>
       <ul>
         <li><a href="https://github.com/permaweb/llama-herder" target="_blank" rel="noopener noreferrer">Llama-Herder GitHub Repository</a></li>
-        <li><a href="https://docs.llama-herder.arweave.dev/" target="_blank" rel="noopener noreferrer">Llama-Herder Documentation</a></li>
-        <li><a href="https://llama-herder.arweave.dev/" target="_blank" rel="noopener noreferrer">Llama-Herder Demo</a></li>
+        <li><a href="https://github.com/samcamwilliams/aos-llama" target="_blank" rel="noopener noreferrer">AOS-Llama (Decentralized LLM Inference Engine)</a></li>
+        <li><a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener noreferrer">llama.cpp C/C++ (High-Performance LLM Inference)</a></li>
       </ul>
 
       <h2 id="ao-llms-documentation">AO LLMs Documentation</h2>
@@ -60,8 +60,7 @@ console.log('LLM Response:', result.data);`}</code></pre>
       
       <ul>
         <li><a href="https://www.npmjs.com/package/aoform" target="_blank" rel="noopener noreferrer">AOForm for AI Applications</a> - Form processing with AI</li>
-        <li><a href="https://github.com/permaweb/ai-chat" target="_blank" rel="noopener noreferrer">AI Chat Application</a> - Real-time AI conversations</li>
-        <li><a href="https://github.com/permaweb/ai-content-generator" target="_blank" rel="noopener noreferrer">AI Content Generator</a> - Automated content creation</li>
+        {/* <li><a href="#" target="_blank" rel="noopener noreferrer">AI Chat Application</a> - Real-time AI conversations</li> */}
       </ul>
 
       <h2 id="advanced-ai-concepts">Advanced AI Concepts</h2>
@@ -78,17 +77,18 @@ console.log('LLM Response:', result.data);`}</code></pre>
       <h2 id="ai-development-tools">AI Development Tools</h2>
       
       <ul>
-        <li><a href="https://github.com/permaweb/ai-sdk" target="_blank" rel="noopener noreferrer">Permaweb AI SDK</a> - SDK for AI development on Arweave</li>
-        <li><a href="https://github.com/permaweb/ai-deployment" target="_blank" rel="noopener noreferrer">AI Model Deployment</a> - Tools for deploying AI models</li>
-        <li><a href="https://github.com/permaweb/ai-monitoring" target="_blank" rel="noopener noreferrer">AI Model Monitoring</a> - Monitor and track AI model performance</li>
+        <li><a href="https://ardacityui.ar.io/" target="_blank" rel="noopener noreferrer">ArDacity UI Kit</a> - A collection of UI components and AO blocks for the Arweave ecosystem</li>
+        <li><a href="https://github.com/simonfriend/AO-Unity-SDK" target="_blank" rel="nooperner noreferrer">Permaweb SDK</a> - Build with Unity and AO</li>
+        <li><strong>AI Model Deployment</strong> - Coming soon</li>
+        <li><strong>AI Model Monitoring</strong> - Coming soon</li>
       </ul>
 
       <h2 id="ai-research-resources">AI Research Resources</h2>
       
       <ul>
-        <li><a href="https://arxiv.org/abs/2024.12345" target="_blank" rel="noopener noreferrer">Decentralized AI on Arweave</a> - Research paper on decentralized AI</li>
-        <li><a href="https://github.com/permaweb/ai-research" target="_blank" rel="noopener noreferrer">AI Research Repository</a> - Latest research and experiments</li>
-        <li><a href="https://discord.gg/permaweb" target="_blank" rel="noopener noreferrer">AI Development Community</a> - Join the AI development Discord</li>
+        <li><strong>Decentralized AI on Arweave</strong> - Coming soon</li>
+        <li><strong>AI Research Repository</strong> - Coming soon</li>
+        <li><strong>AI Development Community</strong> - Coming soon</li>
       </ul>
 
       <h2 id="ai-hackathon-projects">AI Hackathon Projects</h2>
@@ -126,14 +126,14 @@ console.log('LLM Response:', result.data);`}</code></pre>
       <h2 id="ai-community">AI Community</h2>
       
       <ul>
-        <li><a href="https://discord.gg/permaweb" target="_blank" rel="noopener noreferrer">Permaweb Discord</a> - Join the AI development community</li>
-        <li><a href="https://github.com/permaweb/ai-community" target="_blank" rel="noopener noreferrer">AI Community Repository</a> - Share and discover AI projects</li>
-        <li><a href="https://twitter.com/permaweb" target="_blank" rel="noopener noreferrer">Permaweb Twitter</a> - Stay updated on AI developments</li>
+        <li><a href="https://discord.gg/bgMyJGyCSy" target="_blank" rel="noopener noreferrer">Permaweb Discord</a> - Join the AI development community</li>
+        <li><strong>AI Community Repository</strong> - Coming soon</li>
+        <li><strong>Permaweb Twitter</strong> - Coming soon</li>
       </ul>
 
       <hr />
       
-      <p>Ready to build intelligent applications on the permaweb? Start with the <a href="/starter-kits">Starter Kits</a> and explore the <a href="/weavers-resource-library">Weavers Resource Library</a> for more AI development resources!</p>
+      <p>Ready to build intelligent applications on the permaweb? Start with the <a href="/#/starter-kits">Starter Kits</a> and explore the <a href="/#/weavers-resource-library">Weavers Resource Library</a> for more AI development resources!</p>
     </div>
   );
 }
