@@ -513,7 +513,7 @@ const socialPlatform = new SocialPlatform(permaweb);
 
 // Create a post
 const postId = await socialPlatform.createPost({
-  content: "Just finished my latest digital artwork! Check it out! 🎨",
+          content: "Just finished my latest digital artwork! Check it out!",
   images: [artworkFile], // File object
   tags: ["art", "digital-art", "creative"]
 });

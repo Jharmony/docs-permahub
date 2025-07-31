@@ -29,49 +29,44 @@ const RightSidebar = ({ resources = [], showToc = true, className = '', onClose 
     return () => observer.disconnect();
   }, []);
 
-  // Quick Navigation - Most important cross-page links
+  // Quick Navigation - Most important cross-page links for hackathon participants
   const getQuickNavigation = (): ResourceItem[] => {
     return [
-      {
-        title: 'Getting Started',
-        description: 'Begin your Arweave journey',
-        path: '/getting-started'
-      },
-      {
-        title: 'Starter Kits',
-        description: 'Quick setup guides',
-        path: '/starter-kits'
-      },
-      {
-        title: 'AI Tools & LLMs',
-        description: 'Build intelligent applications',
-        path: '/ai-tools'
-      },
-      {
-        title: 'Building AI Agents',
-        description: 'Complete AI agent guide',
-        path: '/building-ai-agents'
-      },
-      {
-        title: 'API Reference',
-        description: 'Complete technical docs',
-        path: '/api-reference'
-      },
-      {
-        title: 'Examples',
-        description: 'See how others build',
-        path: '/examples'
-      },
-      {
-        title: 'Weavers Resource Library',
-        description: 'Complete developer toolkit',
-        path: '/weavers-resource-library'
-      },
-      {
-        title: 'Troubleshooting',
-        description: 'Solve common problems',
-        path: '/troubleshooting'
-      }
+              {
+          title: 'AO Hackathon 2025',
+          description: 'Join the competition',
+          path: '/hackathon'
+        },
+        {
+          title: 'Building AI Agents',
+          description: 'Step-by-step AI agent guide',
+          path: '/building-ai-agents'
+        },
+        {
+          title: 'Core SDKs',
+          description: 'Essential development tools',
+          path: '/ar-io-sdk'
+        },
+        {
+          title: 'Asset Management',
+          description: 'Atomic Assets & Collections',
+          path: '/atomic-assets'
+        },
+        {
+          title: 'Marketplace Tools',
+          description: 'Bazar & trading platforms',
+          path: '/bazar'
+        },
+        {
+          title: 'Advanced Topics',
+          description: 'Advanced AO concepts',
+          path: '/token-blueprint'
+        },
+        {
+          title: 'Resources & Support',
+          description: 'Community & documentation',
+          path: '/weavers-resource-library'
+        }
     ];
   };
 
@@ -81,92 +76,70 @@ const RightSidebar = ({ resources = [], showToc = true, className = '', onClose 
       case '/hackathon':
         return [
           {
-            title: 'AO Hackathon 2025',
-            description: 'Build autonomous AI agents for 72+ hours',
-            path: '/hackathon'
+            title: 'Quick Start Guide',
+            description: 'Get started in 5 minutes',
+            path: '/getting-started'
           },
           {
-            title: 'Building AI Agents Guide',
-            description: 'Complete guide to building AI agents from simple to advanced',
+            title: 'AI Agent Tutorial',
+            description: 'Build your first AI agent',
             path: '/building-ai-agents'
           },
           {
-            title: 'AI Tools & LLMs',
-            description: 'AI development resources and tools',
+            title: 'LLM Integration',
+            description: 'Connect to AI models',
             path: '/ai-tools'
           },
           {
-            title: 'ARX - Data Upload',
-            description: 'Permanent data upload to Arweave',
-            path: '/arx'
+            title: 'Essential SDKs',
+            description: 'ArIO, ARX, WAuth SDKs',
+            path: '/ar-io-sdk'
           },
           {
-            title: 'Weavers Resource Library',
-            description: 'Complete developer toolkit',
-            path: '/weavers-resource-library'
-          },
-          {
-            title: 'AO HTTP Message Passing',
-            description: 'Learn AO communication patterns',
-            path: 'https://cookbook_ao.arweave.net/tutorials/begin/messaging.html',
-            external: true
-          },
-          {
-            title: 'AO Autonomous Agents',
-            description: 'Build agents that run 72+ hours',
-            path: 'https://cookbook_ao.arweave.net/tutorials/begin/rabbithole.html',
-            external: true
-          },
-          {
-            title: 'Reality Protocol',
-            description: 'Build AI worlds and agents',
-            path: 'https://github.com/elliotsayes/Reality',
-            external: true
-          },
-          {
-            title: 'AO Discord',
-            description: 'AO community support',
-            path: 'https://discord.gg/dYXtHwc9dc',
-            external: true
-          },
-          {
-            title: 'Community Discord',
-            description: 'Get help and share projects',
-            path: 'https://discord.gg/gvZTg53zuJ',
-            external: true
-          },
-          {
-            title: 'AO Process Testing',
-            description: 'Testing framework for AI agents',
-            path: 'https://github.com/Autonomous-Finance/ao-process-testing',
-            external: true
-          },
-          {
-            title: 'AO Cookbook',
-            description: 'Complete AO development guide',
-            path: 'https://cookbook_ao.arweave.net',
-            external: true
-          },
-          {
-            title: 'Arweave Documentation',
-            description: 'Permanent data storage guide',
-            path: 'https://docs.arweave.org',
-            external: true
-          },
-          {
-            title: 'Permaweb Libs',
-            description: 'SDK and API documentation',
-            path: '/permaweb-libs'
-          },
-          {
-            title: 'Zones Documentation',
-            description: 'Zone management with Lua',
-            path: '/zones'
-          },
-          {
-            title: 'Atomic Assets',
-            description: 'Asset management with Lua',
+            title: 'Asset Management',
+            description: 'Atomic Assets & Collections',
             path: '/atomic-assets'
+          },
+          {
+            title: 'Marketplace Tools',
+            description: 'Bazar & trading platforms',
+            path: '/bazar'
+          },
+          {
+            title: 'Database Integration',
+            description: 'AO SQLite Workshop',
+            path: '/aos-sqlite-workshop'
+          },
+          {
+            title: 'File System',
+            description: 'WeaveDrive integration',
+            path: '/weavedrive'
+          },
+          {
+            title: 'Token Development',
+            description: 'AO token blueprint',
+            path: '/token-blueprint'
+          },
+          {
+            title: 'Examples & Templates',
+            description: 'Ready-to-use code',
+            path: '/examples'
+          },
+          {
+            title: 'Best Practices',
+            description: 'Development guidelines',
+            path: '/best-practices'
+          },
+          {
+            title: 'Troubleshooting',
+            description: 'Common issues & solutions',
+            path: '/troubleshooting'
+          },
+          {
+            title: 'Community Support',
+            description: 'Discord & forums',
+            external: true,
+            path: 'https://discord.gg/arweave'
           }
         ];
       case '/building-ai-agents':

@@ -27,6 +27,16 @@ import WeaveDrive from './pages/WeaveDrive';
 import Hackathon from './pages/Hackathon';
 import BuildingAIAgents from './pages/BuildingAIAgents';
 import ARX from './pages/ARX';
+import ArweaveJS from './pages/ArweaveJS';
+import TokenBlueprint from './pages/TokenBlueprint';
+import ANS110 from './pages/ANS110';
+import WalletTools from './pages/WalletTools';
+import ArIOSDK from './pages/ArIOSDK';
+import WAuthSDK from './pages/WAuthSDK';
+import AOConnect from './pages/AOConnect';
+import Hyperbeam from './pages/Hyperbeam';
+import LLMsDocumentation from './pages/LLMsDocumentation';
+import PermawebLibs from './pages/PermawebLibs';
 
 function AppContent() {
   const location = useLocation();
@@ -80,10 +90,11 @@ function AppContent() {
             <Route path="/best-practices" element={<BestPractices />} />
             <Route path="/troubleshooting" element={<Troubleshooting />} />
             <Route path="/ecosystem/*" element={<div className="page-container"><h1>Ecosystem</h1><p>Ecosystem documentation coming soon...</p></div>} />
-            <Route path="/permaweb-libs" element={<div className="page-container"><h1>permaweb-libs</h1><p>permaweb-libs documentation coming soon...</p></div>} />
-            <Route path="/hyperbeam" element={<div className="page-container"><h1>Hyperbeam</h1><p>Hyperbeam documentation coming soon...</p></div>} />
-            <Route path="/ao-connect" element={<div className="page-container"><h1>AO Connect</h1><p>AO Connect documentation coming soon...</p></div>} />
-            <Route path="/arweave-js" element={<div className="page-container"><h1>arweave.js</h1><p>arweave.js documentation coming soon...</p></div>} />
+            <Route path="/permaweb-libs" element={<PermawebLibs />} />
+            <Route path="/hyperbeam" element={<Hyperbeam />} />
+            <Route path="/llms-documentation" element={<LLMsDocumentation />} />
+            <Route path="/ao-connect" element={<AOConnect />} />
+            <Route path="/arweave-js" element={<ArweaveJS />} />
             <Route path="/daboy" element={<div className="page-container"><h1>daboy</h1><p>daboy documentation coming soon...</p></div>} />
             <Route path="/load-network" element={<LoadNetwork />} />
             <Route path="/starter-kits" element={<StarterKits />} />
@@ -95,7 +106,12 @@ function AppContent() {
             <Route path="/weavedrive" element={<WeaveDrive />} />
             <Route path="/hackathon" element={<Hackathon />} />
             <Route path="/building-ai-agents" element={<BuildingAIAgents />} />
+            <Route path="/token-blueprint" element={<TokenBlueprint />} />
+            <Route path="/ans-110" element={<ANS110 />} />
+            <Route path="/wallet-tools" element={<WalletTools />} />
             <Route path="/arx" element={<ARX />} />
+            <Route path="/ar-io-sdk" element={<ArIOSDK />} />
+            <Route path="/wauth-sdk" element={<WAuthSDK />} />
           </Routes>
         </main>
         <RightSidebar className={rightSidebarOpen ? 'open' : ''} onClose={closeRightSidebar} />

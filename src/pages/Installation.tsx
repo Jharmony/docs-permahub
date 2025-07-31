@@ -94,7 +94,7 @@ async function testInstallation() {
   try {
     // Create a simple zone to test
     const zoneId = await permaweb.createZone();
-    console.log("✅ Installation successful! Created zone:", zoneId);
+    console.log("Installation successful! Created zone:", zoneId);
     return true;
   } catch (error) {
     console.error("❌ Installation failed:", error);

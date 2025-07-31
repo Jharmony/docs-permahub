@@ -72,6 +72,299 @@ print("Hello, AO World!")
 -- Test message sending (optional)
 Send({ Target = "test", Data = "Hello from AOS!" })`}</code></pre>
 
+      <h3 id="ai-agent-examples">AI Agent Examples</h3>
+      <p>Ready to build autonomous AI agents? Here are practical examples to get you started:</p>
+
+      <h4 id="agent-scheduling-with-cron">Agent Scheduling with Cron</h4>
+      <p>AO provides cron-like scheduling for autonomous operation through command-line setup and message handlers:</p>
+      
+      <div className="code-block">
+        <h5>Setting up a cron process:</h5>
+        <pre><code>{`# Spawn process with 5-minute cron interval
+aos [myProcess] --cron 5-minutes
+
+# Activate cron monitoring
+.monitor`}</code></pre>
+      </div>
+
+      <div className="code-block">
+        <h5>Handling cron messages:</h5>
+        <pre><code>{`-- Handle cron messages for autonomous operation
+Handlers.add(
+  "CronTick", -- Handler name
+  Handlers.utils.hasMatchingTag("Action", "Cron"), -- Pattern to identify cron message
+  function () -- Handler task to execute on cron message
+    -- Check data every cron interval
+    local reading = ao.data.get("temperature-sensor-1")
+    if reading > 30 then
+      ao.send({
+        Target = "alert-handler",
+        Action = "alert",
+        Data = {
+          reading = reading,
+          timestamp = os.time()
+        }
+      })
+    end
+  end
+)`}</code></pre>
+      </div>
+
+      <h4 id="simple-monitoring-agent">Simple Monitoring Agent</h4>
+      <pre><code>{`local Agent = {}
+
+Agent.config = {
+  dataSource = "temperature-sensor-1",
+  threshold = 30,
+  alertRecipient = "alert-handler"
+}
+
+function Agent.checkReading()
+  local reading = ao.data.get(Agent.config.dataSource)
+  
+  if reading > Agent.config.threshold then
+    ao.send({
+      Target = Agent.config.alertRecipient,
+      Action = "alert",
+      Data = {
+        source = Agent.config.dataSource,
+        reading = reading,
+        threshold = Agent.config.threshold,
+        timestamp = os.time()
+      }
+    })
+  end
+end
+
+-- Set up cron handler for autonomous monitoring
+Handlers.add(
+  "MonitoringCron",
+  Handlers.utils.hasMatchingTag("Action", "Cron"),
+  Agent.checkReading
+)
+
+-- Note: Process must be spawned with --cron flag and .monitor called
+-- Example: aos [myMonitoringAgent] --cron 5-minutes`}</code></pre>
+
+      <h4 id="prediction-agent-with-machine-learning">Prediction Agent with Machine Learning</h4>
+      <pre><code>{`local PredictionAgent = {}
+local aolearn = require('aolearn')
+
+PredictionAgent.config = {
+  modelType = "knn", -- Using k-Nearest Neighbors algorithm
+  dataSource = "sensor-readings",
+  k = 5, -- Number of neighbors to consider
+  features = {"temperature", "humidity", "pressure"}
+}
+
+-- Initialize and train the model
+function PredictionAgent.initialize()
+  -- Load training data from permanent storage
+  local trainingData = ao.data.get(PredictionAgent.config.dataSource)
+  
+  -- Create and train KNN model
+  PredictionAgent.model = aolearn.knn.new({
+    k = PredictionAgent.config.k,
+    features = #PredictionAgent.config.features
+  })
+  
+  -- Train the model with historical data
+  PredictionAgent.model:train(trainingData.x, trainingData.y)
+  ao.log("Prediction model initialized and trained")
+end
+
+-- Make predictions based on new data
+function PredictionAgent.predict(newData)
+  -- Validate input
+  if not newData or #newData ~= #PredictionAgent.config.features then
+    return { error = "Invalid input data format" }
+  end
+  
+  -- Make prediction using the trained model
+  local prediction = PredictionAgent.model:predict(newData)
+  
+  -- Store the prediction and input for future model improvements
+  ao.data.append(PredictionAgent.config.dataSource .. "-predictions", {
+    input = newData,
+    prediction = prediction,
+    timestamp = os.time()
+  })
+  
+  return {
+    prediction = prediction,
+    confidence = PredictionAgent.model:confidence(),
+    timestamp = os.time()
+  }
+end
+
+-- Handle incoming prediction requests
+Handlers.add(
+  "PredictionRequest",
+  Handlers.utils.hasMatchingTag("Action", "predict"),
+  function(msg)
+    if msg.Data and msg.Data.features then
+      local result = PredictionAgent.predict(msg.Data.features)
+      ao.send({
+        Target = msg.From,
+        Action = "prediction-result",
+        Data = result
+      })
+    else
+      ao.send({
+        Target = msg.From,
+        Action = "error",
+        Data = { error = "Missing feature data" }
+      })
+    end
+  end
+)
+
+-- Set up periodic model retraining via cron
+Handlers.add(
+  "ModelRetraining",
+  Handlers.utils.hasMatchingTag("Action", "Cron"),
+  function()
+    PredictionAgent.initialize() -- Retrain with latest data
+    ao.log("Model retrained at " .. os.time())
+  end
+)
+
+-- Initialize the model when the agent starts
+PredictionAgent.initialize()
+
+-- Note: For daily retraining, spawn with: aos [myPredictionAgent] --cron 1-day`}</code></pre>
+
+      <h4 id="ai-agent-development-tips">AI Agent Development Tips</h4>
+      <ul>
+        <li><strong>Start Simple:</strong> Begin with basic monitoring agents before building complex ML models</li>
+        <li><strong>Use Cron Scheduling:</strong> Set up autonomous operation with the <code>--cron</code> flag</li>
+        <li><strong>Persistent Storage:</strong> Use <code>ao.data</code> to store agent state and training data</li>
+        <li><strong>Message Handlers:</strong> Create handlers for different types of interactions</li>
+        <li><strong>Error Handling:</strong> Always validate inputs and handle edge cases</li>
+        <li><strong>Testing:</strong> Use AOSWeb to test your agents before deployment</li>
+      </ul>
+
+      <h4 id="hyperbeam-ai-agent-example">HyperBEAM AI Agent with Cache Management</h4>
+      <p>Here's how to create an AI agent that works with HyperBEAM, using cache management for persistent state:</p>
+
+      <div className="code-block">
+        <h5>HyperBEAM AI Agent with Cron and Cache</h5>
+        <pre><code>{`-- HyperBEAM AI Agent with cache management
+local AIAgent = {}
+
+AIAgent.config = {
+  dataSource = "sensor-data",
+  threshold = 30,
+  cacheKey = "ai-agent-state"
+}
+
+-- Initialize agent state in cache
+function AIAgent.initialize()
+  -- Set up initial cache state
+  Send({
+    device = "patch@1.0",
+    cache = {
+      [AIAgent.config.cacheKey] = {
+        lastCheck = os.time(),
+        alertCount = 0,
+        readings = {}
+      }
+    }
+  })
+  ao.log("HyperBEAM AI Agent initialized with cache")
+end
+
+-- Check sensor data and update cache
+function AIAgent.checkReading()
+  local reading = ao.data.get(AIAgent.config.dataSource)
+  
+  if reading > AIAgent.config.threshold then
+    -- Update cache with new alert
+    Send({
+      device = "patch@1.0",
+      cache = {
+        [AIAgent.config.cacheKey] = {
+          lastCheck = os.time(),
+          alertCount = (ao.data.get(AIAgent.config.cacheKey .. ".alertCount") or 0) + 1,
+          readings = ao.data.get(AIAgent.config.cacheKey .. ".readings") or {},
+          lastAlert = {
+            reading = reading,
+            timestamp = os.time(),
+            threshold = AIAgent.config.threshold
+          }
+        }
+      }
+    })
+    
+    -- Send alert message
+    ao.send({
+      Target = "alert-handler",
+      Action = "hyperbeam-alert",
+      Data = {
+        source = AIAgent.config.dataSource,
+        reading = reading,
+        threshold = AIAgent.config.threshold,
+        timestamp = os.time(),
+        cacheKey = AIAgent.config.cacheKey
+      }
+    })
+    
+    ao.log("HyperBEAM AI Agent: Alert sent, cache updated")
+  end
+end
+
+-- Set up cron handler for autonomous monitoring
+Handlers.add(
+  "HyperBEAMMonitoringCron",
+  Handlers.utils.hasMatchingTag("Action", "Cron"),
+  AIAgent.checkReading
+)
+
+-- Handle cache state requests
+Handlers.add(
+  "CacheStateRequest",
+  Handlers.utils.hasMatchingTag("Action", "get-cache"),
+  function(msg)
+    local cacheState = ao.data.get(AIAgent.config.cacheKey)
+    ao.send({
+      Target = msg.From,
+      Action = "cache-state",
+      Data = cacheState
+    })
+  end
+)
+
+-- Initialize the agent
+AIAgent.initialize()
+
+-- Note: Deploy with HyperBEAM node and use:
+-- aos [myHyperBEAMAIAgent] --cron 5-minutes`}</code></pre>
+      </div>
+
+      <div className="code-block">
+        <h5>Testing the HyperBEAM AI Agent</h5>
+        <pre><code>{`# Check agent state via HTTP
+curl http://localhost:8734/<process_id>~process@1.0/now/cache/serialize~json@1.0
+
+# Or for node operators
+curl http://arweave.nyc/<process_id>~process@1.0/now/cache/serialize~json@1.0
+
+# Send test message to get cache state
+Send({
+  Target = "your-ai-agent-process-id",
+  Action = "get-cache"
+})`}</code></pre>
+      </div>
+
+      <h4 id="next-steps-for-ai-agents">Next Steps for AI Agents</h4>
+      <ul>
+        <li><Link to="/building-ai-agents">Complete AI Agent Development Guide</Link> - Learn advanced techniques</li>
+        <li><Link to="/ai-tools">AI Tools & LLMs</Link> - Integrate with Llama-Herder and other AI services</li>
+        <li><a href="#reality-protocol-resources">Reality Protocol</a> - Build AI agents in virtual worlds</li>
+        <li><a href="https://cookbook_ao.arweave.net/tutorials/begin/messaging.html" target="_blank" rel="noopener noreferrer">AO Messaging Tutorial</a> - Master agent communication</li>
+        <li><Link to="/hyperbeam">HyperBEAM Documentation</Link> - Learn more about HyperBEAM devices and cache management</li>
+      </ul>
+
       <h3 id="alternative-web-ide">Alternative: Use BetterIDEa Web IDE</h3>
       <p>If you prefer a web-based environment:</p>
       <ul>
@@ -324,11 +617,89 @@ RealityEntitiesStatic = {
         <li><a href="https://github.com/elliotsayes/Reality/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a> - Community discussions</li>
       </ul>
 
-      <h2 id="more-details">More Details</h2>
+      <h2 id="quick-links">Quick Links & Resources</h2>
+      
+      <div className="quick-links-grid">
+        <div className="quick-link-section">
+          <h3>Essential SDKs & Tools</h3>
+          <ul>
+            <li><Link to="/ar-io-sdk">ArIO SDK</Link> - Gateway and ArNS management</li>
+            <li><Link to="/arx">ARX</Link> - Upload SDK for permanent data</li>
+            <li><Link to="/wauth-sdk">WAuth SDK</Link> - Social authentication</li>
+            <li><Link to="/arweave-js">Arweave.js</Link> - Core Arweave library</li>
+            <li><Link to="/permaweb-libs">Permaweb Libs</Link> - Permaweb development</li>
+          </ul>
+        </div>
+
+        <div className="quick-link-section">
+          <h3>Development Resources</h3>
+          <ul>
+            <li><Link to="/getting-started">Getting Started</Link> - Complete onboarding guide</li>
+            <li><Link to="/installation">Installation</Link> - Setup instructions</li>
+            <li><Link to="/examples">Examples</Link> - Real-world implementations</li>
+            <li><Link to="/api-reference">API Reference</Link> - Complete API documentation</li>
+            <li><Link to="/best-practices">Best Practices</Link> - Development guidelines</li>
+          </ul>
+        </div>
+
+        <div className="quick-link-section">
+          <h3>AI & AO Resources</h3>
+          <ul>
+            <li><Link to="/building-ai-agents">Building AI Agents</Link> - AO agent development</li>
+            <li><Link to="/ai-tools">AI Tools</Link> - LLM integration resources</li>
+            <li><Link to="/aos-sqlite-workshop">AO SQLite Workshop</Link> - Database integration</li>
+            <li><Link to="/weavedrive">WeaveDrive</Link> - File system for AO</li>
+          </ul>
+        </div>
+
+        <div className="quick-link-section">
+          <h3>Asset & Content Management</h3>
+          <ul>
+            <li><Link to="/atomic-assets">Atomic Assets</Link> - Digital asset creation</li>
+            <li><Link to="/collections">Collections</Link> - Asset organization</li>
+            <li><Link to="/profiles">Profiles</Link> - User identity management</li>
+            <li><Link to="/zones">Zones</Link> - Content organization</li>
+            <li><Link to="/comments">Comments</Link> - Social interactions</li>
+          </ul>
+        </div>
+
+        <div className="quick-link-section">
+          <h3>Marketplace & Tools</h3>
+          <ul>
+            <li><Link to="/bazar">Bazar</Link> - Marketplace platform</li>
+            <li><Link to="/beacon-mini-bazar">Beacon Mini Bazar</Link> - Lightweight marketplace</li>
+            <li><Link to="/weavers-resource-library">Weavers Resource Library</Link> - Complete toolkit</li>
+            <li><Link to="/starter-kits">Starter Kits</Link> - Quick start templates</li>
+          </ul>
+        </div>
+
+        <div className="quick-link-section">
+          <h3>Advanced Topics</h3>
+          <ul>
+            <li><Link to="/arx">ARX</Link> - Advanced upload capabilities</li>
+            <li><Link to="/token-blueprint">Token Blueprint</Link> - Token creation guide</li>
+            <li><Link to="/ans-110">ANS-110</Link> - Asset metadata standard</li>
+            <li><Link to="/wallet-tools">Wallet Tools</Link> - Wallet utilities</li>
+            <li><Link to="/load-network">Load Network</Link> - Network configuration</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="external-resources">External Resources</h3>
       <ul>
         <li><a href="https://permahub.ar.io/#/hackathon" target="_blank" rel="noopener noreferrer">Full Hackathon Website</a></li>
-        <li><Link to="/weavers-resource-library">Hackathon Resources</Link></li>
-        <li><Link to="/starter-kits">Development Tools</Link></li>
+        <li><a href="https://ao.arweave.net/" target="_blank" rel="noopener noreferrer">AO Documentation</a></li>
+        <li><a href="https://docs.arweave.org/" target="_blank" rel="noopener noreferrer">Arweave Documentation</a></li>
+        <li><a href="https://discord.gg/arweave" target="_blank" rel="noopener noreferrer">Arweave Discord</a></li>
+        <li><a href="https://discord.gg/gvZTg53zuJ" target="_blank" rel="noopener noreferrer">Bazar Discord</a></li>
+      </ul>
+
+      <h3 id="troubleshooting-resources">Troubleshooting</h3>
+      <ul>
+        <li><Link to="/troubleshooting">Troubleshooting Guide</Link> - Common issues and solutions</li>
+        <li><Link to="/best-practices">Best Practices</Link> - Development guidelines</li>
+        <li><a href="https://github.com/permaweb/arx/issues" target="_blank" rel="noopener noreferrer">ARX Issues</a></li>
+        <li><a href="https://github.com/ar-io/ar-io-sdk/issues" target="_blank" rel="noopener noreferrer">ArIO SDK Issues</a></li>
       </ul>
 
       <hr />

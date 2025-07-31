@@ -1,0 +1,175 @@
+# EN Documentation for LLMs
+
+Generated: 2025-01-27T00:00:00.000Z
+
+This file contains structured reference documentation and a comprehensive directory of all documentation pages for the Arweave Guides ecosystem.
+
+# Documentation Directory
+
+## Getting Started
+
+- [Getting Started](https://arweave-guides.com/getting-started)
+- [Installation](https://arweave-guides.com/installation)
+- [Quick Start Guide](https://arweave-guides.com/getting-started#quick-start)
+
+## Core SDKs & Libraries
+
+### Arweave.js
+- [Arweave.js Documentation](https://arweave-guides.com/arweave-js)
+- [Basic Usage](https://arweave-guides.com/arweave-js#basic-usage)
+- [Transactions](https://arweave-guides.com/arweave-js#transactions)
+- [Data Upload](https://arweave-guides.com/arweave-js#data-upload)
+
+### ArIO SDK
+- [ArIO SDK Documentation](https://arweave-guides.com/ario-sdk)
+- [Authentication](https://arweave-guides.com/ario-sdk#authentication)
+- [Data Management](https://arweave-guides.com/ario-sdk#data-management)
+
+### ARX
+- [ARX Documentation](https://arweave-guides.com/arx)
+- [Data Upload](https://arweave-guides.com/arx#data-upload)
+- [File Management](https://arweave-guides.com/arx#file-management)
+
+### WAuth SDK
+- [WAuth SDK Documentation](https://arweave-guides.com/wauth-sdk)
+- [Authentication](https://arweave-guides.com/wauth-sdk#authentication)
+- [User Management](https://arweave-guides.com/wauth-sdk#user-management)
+
+### Wallet Tools
+- [Wallet Tools Documentation](https://arweave-guides.com/wallet-tools)
+- [Wallet Integration](https://arweave-guides.com/wallet-tools#wallet-integration)
+- [Transaction Signing](https://arweave-guides.com/wallet-tools#transaction-signing)
+
+### Permaweb Libs
+- [Permaweb Libs Documentation](https://arweave-guides.com/permaweb-libs)
+- [Core Libraries](https://arweave-guides.com/permaweb-libs#core-libraries)
+- [Utilities](https://arweave-guides.com/permaweb-libs#utilities)
+
+### AO Connect
+- [AO Connect Documentation](https://arweave-guides.com/ao-connect)
+- [Installation](https://arweave-guides.com/ao-connect#installation)
+- [Basic Usage](https://arweave-guides.com/ao-connect#basic-usage)
+- [Advanced Usage](https://arweave-guides.com/ao-connect#advanced-usage)
+- [API Reference](https://arweave-guides.com/ao-connect#api-reference)
+- [Real-World Examples](https://arweave-guides.com/ao-connect#real-world-examples)
+- [Error Handling](https://arweave-guides.com/ao-connect#error-handling)
+- [Best Practices](https://arweave-guides.com/ao-connect#best-practices)
+- [Integration Examples](https://arweave-guides.com/ao-connect#integration-examples)
+- [Troubleshooting](https://arweave-guides.com/ao-connect#troubleshooting)
+
+### HyperBEAM
+- [HyperBEAM Documentation](https://arweave-guides.com/hyperbeam)
+- [What is HyperBEAM](https://arweave-guides.com/hyperbeam#what-is-hyperbeam)
+- [Installation & Setup](https://arweave-guides.com/hyperbeam#installation--setup)
+- [Running HyperBEAM](https://arweave-guides.com/hyperbeam#running-hyperbeam)
+- [Devices Overview](https://arweave-guides.com/hyperbeam#devices-overview)
+- [Device Selection](https://arweave-guides.com/hyperbeam#device-selection-for-use-cases)
+- [Understanding Messages](https://arweave-guides.com/hyperbeam#understanding-messages)
+- [Advanced Configuration](https://arweave-guides.com/hyperbeam#advanced-configuration)
+- [Use Cases & Examples](https://arweave-guides.com/hyperbeam#use-cases--examples)
+- [Integration with AO](https://arweave-guides.com/hyperbeam#integration-with-ao)
+- [Legacy AO Process Integration](https://arweave-guides.com/hyperbeam#legacy-ao-process-integration-with-patch10)
+- [Troubleshooting](https://arweave-guides.com/hyperbeam#troubleshooting)
+
+## AI Agents & AO
+
+### Getting Started with AI Agents
+- [Building AI Agents Guide](https://arweave-guides.com/building-ai-agents)
+- [AI Tools & LLMs](https://arweave-guides.com/ai-tools)
+- [Hackathon Resources](https://arweave-guides.com/hackathon)
+
+### AO Development
+- [ANS-110 Standard](https://arweave-guides.com/ans-110)
+- [AO SQLite Workshop](https://arweave-guides.com/ao-sqlite-workshop)
+- [AO iOS SDK](https://arweave-guides.com/ao-ios-sdk)
+
+## Asset Management
+
+### Atomic Assets
+- [Atomic Assets Documentation](https://arweave-guides.com/atomic-assets)
+- [Asset Creation](https://arweave-guides.com/atomic-assets#asset-creation)
+- [Asset Management](https://arweave-guides.com/atomic-assets#asset-management)
+
+### Collections
+- [Collections Documentation](https://arweave-guides.com/collections)
+- [Collection Management](https://arweave-guides.com/collections#collection-management)
+
+### Token Blueprint
+- [Token Blueprint Documentation](https://arweave-guides.com/token-blueprint)
+- [Token Creation](https://arweave-guides.com/token-blueprint#token-creation)
+- [Token Management](https://arweave-guides.com/token-blueprint#token-management)
+
+## Development Tools
+
+### Bazar
+- [Bazar Documentation](https://arweave-guides.com/bazar)
+- [Bazar Studio](https://arweave-guides.com/bazar#bazar-studio)
+- [Bazar Landing](https://arweave-guides.com/bazar#bazar-landing)
+- [Bazar Profile](https://arweave-guides.com/bazar#bazar-profile)
+- [Bazar Upload Dashboard](https://arweave-guides.com/bazar#bazar-upload-dashboard)
+
+### Beacon Mini Bazar
+- [Beacon Mini Bazar Documentation](https://arweave-guides.com/beacon-mini-bazar)
+
+### WeaveDrive
+- [WeaveDrive Documentation](https://arweave-guides.com/weavedrive)
+- [File Storage](https://arweave-guides.com/weavedrive#file-storage)
+- [Data Management](https://arweave-guides.com/weavedrive#data-management)
+
+## Advanced Features
+
+### Zones
+- [Zones Documentation](https://arweave-guides.com/zones)
+- [Zone Management](https://arweave-guides.com/zones#zone-management)
+- [Lua Integration](https://arweave-guides.com/zones#lua-integration)
+
+### Comments
+- [Comments Documentation](https://arweave-guides.com/comments)
+- [Comment System](https://arweave-guides.com/comments#comment-system)
+
+### Profiles
+- [Profiles Documentation](https://arweave-guides.com/profiles)
+- [Profile Management](https://arweave-guides.com/profiles#profile-management)
+
+## Resources & Tools
+
+### Weavers Resource Library
+- [Weavers Resource Library](https://arweave-guides.com/weavers-resource-library)
+- [Developer Toolkit](https://arweave-guides.com/weavers-resource-library#developer-toolkit)
+
+### Starter Kits
+- [Starter Kits Documentation](https://arweave-guides.com/starter-kits)
+- [Quick Start Templates](https://arweave-guides.com/starter-kits#quick-start-templates)
+
+### Examples
+- [Examples Documentation](https://arweave-guides.com/examples)
+- [Code Examples](https://arweave-guides.com/examples#code-examples)
+
+### Best Practices
+- [Best Practices Documentation](https://arweave-guides.com/best-practices)
+- [Development Guidelines](https://arweave-guides.com/best-practices#development-guidelines)
+
+### Troubleshooting
+- [Troubleshooting Guide](https://arweave-guides.com/troubleshooting)
+- [Common Issues](https://arweave-guides.com/troubleshooting#common-issues)
+- [Solutions](https://arweave-guides.com/troubleshooting#solutions)
+
+### API Reference
+- [API Reference Documentation](https://arweave-guides.com/api-reference)
+- [Endpoints](https://arweave-guides.com/api-reference#endpoints)
+- [Authentication](https://arweave-guides.com/api-reference#authentication)
+
+## Community & Support
+
+### Load Network
+- [Load Network Documentation](https://arweave-guides.com/load-network)
+- [Network Configuration](https://arweave-guides.com/load-network#network-configuration)
+
+### Build Docs Site
+- [Build Docs Site Guide](https://arweave-guides.com/build-docs-site)
+- [Documentation Setup](https://arweave-guides.com/build-docs-site#documentation-setup)
+
+# Summary
+
+Total documentation pages: 45
+This documentation provides comprehensive coverage of the Arweave ecosystem, including core SDKs, AI agents, asset management, development tools, and community resources. The documentation is structured for easy navigation by AI tools and developers, with clear categorization and detailed technical information. 

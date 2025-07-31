@@ -47,6 +47,10 @@ const searchData = [
   { title: "Building AI Agents", path: "/building-ai-agents", category: "AI Tools & LLM Integration" },
   { title: "AI Agent Development", path: "/building-ai-agents", category: "AI Tools & LLM Integration" },
   { title: "AI Agents", path: "/building-ai-agents", category: "AI Tools & LLM Integration" },
+  { title: "AI Documentation for LLMs", path: "/llms-documentation", category: "AI Tools & LLM Integration" },
+  { title: "LLMs Documentation", path: "/llms-documentation", category: "AI Tools & LLM Integration" },
+  { title: "AI Docs", path: "/llms-documentation", category: "AI Tools & LLM Integration" },
+  { title: "LLMs.txt", path: "/llms-documentation", category: "AI Tools & LLM Integration" },
   
   // Workshops & Learning
   { title: "AOS-Sqlite Workshop", path: "/aos-sqlite-workshop", category: "Workshops & Learning" },
@@ -62,6 +66,12 @@ const searchData = [
   { title: "ARX Upload", path: "/arx", category: "Libraries & Tools" },
   { title: "Permanent Data Upload", path: "/arx", category: "Libraries & Tools" },
   { title: "Turbo Bundle Service", path: "/arx", category: "Libraries & Tools" },
+  { title: "Permaweb Libs", path: "/permaweb-libs", category: "Libraries & Tools" },
+  { title: "permaweb-libs", path: "/permaweb-libs", category: "Libraries & Tools" },
+  { title: "@permaweb/libs", path: "/permaweb-libs", category: "Libraries & Tools" },
+  { title: "AO Connect SDK", path: "/ao-connect", category: "Libraries & Tools" },
+  { title: "@permaweb/aoconnect", path: "/ao-connect", category: "Libraries & Tools" },
+  { title: "Hyperbeam SDK", path: "/hyperbeam", category: "Libraries & Tools" },
   
   // Resource Library
   { title: "Weavers Resource Library", path: "/weavers-resource-library", category: "Resource Library" },
@@ -100,6 +110,10 @@ const searchData = [
   { title: "Comments System", path: "/comments", category: "Core Concepts" },
   { title: "Entity Management", path: "/zones", category: "Core Concepts" },
   { title: "Zones System", path: "/zones", category: "Core Concepts" },
+  { title: "SDK", path: "/arweave-js", category: "Libraries & Tools" },
+  { title: "JavaScript SDK", path: "/arweave-js", category: "Libraries & Tools" },
+  { title: "Core SDK", path: "/arweave-js", category: "Libraries & Tools" },
+  { title: "Development Kit", path: "/arweave-js", category: "Libraries & Tools" },
   { title: "Marketplace", path: "/bazar", category: "Arweave Ecosystem" },
   { title: "Bazar Marketplace", path: "/bazar", category: "Arweave Ecosystem" },
   { title: "Mobile App", path: "/beacon-mini-bazar", category: "Arweave Ecosystem" },
@@ -179,13 +193,10 @@ function Navigation({ onMenuToggle, onRightMenuToggle }: { onMenuToggle?: () => 
         
         <div className="nav-links">
           <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
-          <Link to="/getting-started" className={location.pathname === "/getting-started" ? "active" : ""}>Getting Started</Link>
           <Link to="/api-reference" className={location.pathname === "/api-reference" ? "active" : ""}>API Reference</Link>
-          <Link to="/examples" className={location.pathname === "/examples" ? "active" : ""}>Examples</Link>
-          <a href={PERMAHUB_LINK} target="_blank" rel="noreferrer">Back to PermaHub</a>
+          <Link to="/llms-documentation" className={location.pathname === "/llms-documentation" ? "active" : ""}>LLMs.txt</Link>
         </div>
         <div className="nav-center" ref={searchRef}>
-          <div className="nav-search-icon">🔍</div>
           <input
             type="text"
             className="nav-search"
@@ -195,7 +206,6 @@ function Navigation({ onMenuToggle, onRightMenuToggle }: { onMenuToggle?: () => 
             onKeyDown={handleSearchKeyDown}
             onFocus={() => searchQuery && setShowSearchResults(true)}
           />
-          <div className="nav-search-shortcut">⌘K</div>
           
           {/* Search Results Dropdown */}
           {showSearchResults && (

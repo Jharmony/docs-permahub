@@ -95,6 +95,21 @@ function Home() {
         <li><Link to="/atomic-assets">Atomic Assets</Link> — Digital asset creation and management</li>
         <li><Link to="/collections">Collections</Link> — Asset organization and curation</li>
         <li><Link to="/comments">Comments</Link> — Social features and discussions</li>
+        <li><Link to="/token-blueprint">Token Blueprint</Link> — AO token development template</li>
+        <li><Link to="/ans-110">ANS-110 Standard</Link> — Asset discoverability protocol</li>
+      </ul>
+      
+      <h2>Core SDKs & Libraries</h2>
+      
+      <ul>
+        <li><Link to="/arweave-js">Arweave.js</Link> — JavaScript SDK for Arweave interactions</li>
+        <li><Link to="/ar-io-sdk">ArIO SDK</Link> — Gateway and ArNS management</li>
+        <li><Link to="/arx">ARX</Link> — Upload SDK for permanent data</li>
+        <li><Link to="/wauth-sdk">WAuth SDK</Link> — Social authentication</li>
+        <li><Link to="/wallet-tools">Wallet Tools</Link> — Wallet connection utilities</li>
+        <li><Link to="/permaweb-libs">Permaweb Libs</Link> — Core permaweb development SDK</li>
+        <li><Link to="/ao-connect">AO Connect</Link> — AO client library for browser and Node.js</li>
+        <li><Link to="/hyperbeam">Hyperbeam</Link> — High-performance data streaming</li>
       </ul>
       
       <h2>Advanced Development</h2>
@@ -107,11 +122,14 @@ function Home() {
         <li><Link to="/beacon-mini-bazar">Beacon Mini Bazar</Link> — Mobile marketplace app</li>
       </ul>
       
-      <h2>Library Sections</h2>
+      <h2>Additional Resources</h2>
       
       <ul>
-        <li><Link to="/permaweb-libs">permaweb-libs</Link> — SDK and API documentation</li>
-        <li><em>More libraries coming soon...</em></li>
+        <li><Link to="/weavers-resource-library">Weavers Resource Library</Link> — Complete developer toolkit</li>
+        <li><Link to="/starter-kits">Starter Kits</Link> — Quick start templates and guides</li>
+        <li><Link to="/examples">Examples</Link> — Real-world implementations and code samples</li>
+        <li><Link to="/best-practices">Best Practices</Link> — Development guidelines and patterns</li>
+        <li><em>More resources coming soon...</em></li>
       </ul>
       
       <h2>Quick Start for Hackathon Participants</h2>
