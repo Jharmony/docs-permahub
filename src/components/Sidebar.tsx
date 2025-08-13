@@ -112,6 +112,7 @@ function Sidebar({ className = '' }: { className?: string }) {
               <ul>
                 <li><Link to="/building-ai-agents" className={isActive('/building-ai-agents') ? 'active' : ''} onClick={() => handleLinkClick('/building-ai-agents')}>Building AI Agents</Link></li>
                 <li><Link to="/ai-tools" className={isActive('/ai-tools') ? 'active' : ''} onClick={() => handleLinkClick('/ai-tools')}>AI Tools & LLMs</Link></li>
+                <li><Link to="/apus-network" className={isActive('/apus-network') ? 'active' : ''} onClick={() => handleLinkClick('/apus-network')}>Apus Network</Link></li>
                 <li><a href="#ai-agent-examples" onClick={(e) => handleAnchorClick(e, 'ai-agent-examples')} className={isActive('/hackathon') ? 'active' : ''}>AI Agent Examples</a></li>
                 <li><Link to="/aos-sqlite-workshop" className={isActive('/aos-sqlite-workshop') ? 'active' : ''} onClick={() => handleLinkClick('/aos-sqlite-workshop')}>AO SQLite Workshop</Link></li>
                 <li><Link to="/weavedrive" className={isActive('/weavedrive') ? 'active' : ''} onClick={() => handleLinkClick('/weavedrive')}>WeaveDrive</Link></li>

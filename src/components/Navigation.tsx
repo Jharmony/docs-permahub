@@ -40,7 +40,7 @@ const searchData = [
   { title: "Bazar & Bazar Studio", path: "/bazar", category: "Arweave Ecosystem" },
   { title: "Beacon Mini Bazar", path: "/beacon-mini-bazar", category: "Arweave Ecosystem" },
   { title: "Beacon Wallet Mini Bazar", path: "/beacon-mini-bazar", category: "Arweave Ecosystem" },
-  
+  { title: "APUS Network", path: "/apus-network", category: "Arweave Ecosystem" },
   // AI Tools & LLM Integration
   { title: "AI Tools", path: "/ai-tools", category: "AI Tools & LLM Integration" },
   { title: "AI Tools & LLMs", path: "/ai-tools", category: "AI Tools & LLM Integration" },
