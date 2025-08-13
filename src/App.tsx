@@ -17,6 +17,7 @@ import Navigation from "./components/Navigation";
 import Sidebar from "./components/Sidebar";
 import RightSidebar from "./components/RightSidebar";
 import LoadNetwork from './pages/LoadNetwork';
+import ApusNetwork from './pages/ApusNetwork';
 import StarterKits from './pages/StarterKits';
 import Bazar from './pages/Bazar';
 import BeaconMiniBazar from './pages/BeaconMiniBazar';
@@ -97,6 +98,7 @@ function AppContent() {
             <Route path="/arweave-js" element={<ArweaveJS />} />
             <Route path="/daboy" element={<div className="page-container"><h1>daboy</h1><p>daboy documentation coming soon...</p></div>} />
             <Route path="/load-network" element={<LoadNetwork />} />
+            <Route path="/apus-network" element={<ApusNetwork />} />
             <Route path="/starter-kits" element={<StarterKits />} />
             <Route path="/bazar" element={<Bazar />} />
             <Route path="/beacon-mini-bazar" element={<BeaconMiniBazar />} />

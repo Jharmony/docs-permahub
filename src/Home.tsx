@@ -30,6 +30,7 @@ function Home() {
         <li><strong>@permaweb/aoconnect</strong> - AO client library for browser and Node.js</li>
         <li><strong>arweave.js</strong> - JavaScript SDK for Arweave interactions</li>
         <li><strong>Hyperbeam</strong> - High-performance data streaming and processing with HTTP</li>
+        <li><strong>APUS Network</strong> - Verifiable AI Inference Service integrated with AO</li>
         <li><strong>WeaveDrive</strong> - Virtual file system for Arweave (AOP-5)</li>
         <li><strong>Llama-Herder</strong> - Decentralized LLM inference on AO</li>
         <li><strong>Load Network</strong> - Ethereum-compatible Arweave integration</li>
@@ -115,6 +116,7 @@ function Home() {
       <h2>Advanced Development</h2>
       
       <ul>
+        <li><Link to="/apus-network">APUS Network</Link> — Verifiable AI Inference Service integrated with AO</li>
         <li><Link to="/aos-sqlite-workshop">AOS-Sqlite Workshop</Link> — Database indexing with AO</li>
         <li><Link to="/weavedrive">WeaveDrive</Link> — Virtual file system implementation</li>
         <li><Link to="/load-network">Load Network</Link> — Ethereum-compatible Arweave integration</li>
